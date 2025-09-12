@@ -1,68 +1,97 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"); */
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "roboto-light";
+  src: url("/fonts/Roboto_Condensed-Light.ttf");
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: "roboto-regular";
+  src: url("/fonts/Roboto_Condensed-Regular.ttf");
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@font-face {
+  font-family: "roboto-medium";
+  src: url("/fonts/Roboto_Condensed-Medium.ttf");
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@font-face {
+  font-family: "roboto-semibold";
+  src: url("/fonts/Roboto_Condensed-SemiBold.ttf");
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@font-face {
+  font-family: "roboto-bold";
+  src: url("/fonts/Roboto_Condensed-Bold.ttf");
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@font-face {
+  font-family: "roboto-extrabold";
+  src: url("/fonts/Roboto_Condensed-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "playfair-regular";
+  src: url("/fonts/PlayfairDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-family: "playfair-medium";
+  src: url("/fonts/PlayfairDisplay-Medium.ttf");
+}
+
+@font-face {
+  font-family: "playfair-semibold";
+  src: url("/fonts/PlayfairDisplay-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "playfair-bold";
+  src: url("/fonts/PlayfairDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: "playfair-extrabold";
+  src: url("/fonts/PlayfairDisplay-ExtraBold.ttf");
+}
+
+@theme {
+  --font-roboto-light: "roboto-light", sans-serif;
+  --font-roboto-regular: "roboto-regular", sans-serif;
+  --font-roboto-medium: "roboto-medium", sans-serif;
+  --font-roboto-semibold: "roboto-semibold", sans-serif;
+  --font-roboto-bold: "roboto-bold", sans-serif;
+  --font-roboto-extrabold: "roboto-extrabold", sans-serif;
+  --font-playfair-regular: "playfair-regular", serif;
+  --font-playfair-medium: "playfair-medium", serif;
+  --font-playfair-semibold: "playfair-semibold", serif;
+  --font-playfair-bold: "playfair-bold", serif;
+  --font-playfair-extrabold: "playfair-extrabold", serif;
+
+  /* Light background color */
+  --color-background: #f1f2ee; /* White smoke */
+
+  --color-background-black: #0F0E0E;
+
+  /* For subtle borders, lines, or inactive states */
+  --color-muted: #bfb7b6; /* Silver */
+
+  /* Primary body text */
+  --color-text: #848c8e; /* Battleship gray */
+
+  /* Headlines and strong text */
+  --color-text-heading: #435058; /* Outer space */
+
+  /* Vibrant call-to-action color for buttons, highlights, and key interactive elements */
+  --color-accent: #dcf763; /* Mindaro */
+}
+
+@layer utility {
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-text)] overflow-x-hidden;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  .container {
+    @apply min-h-full py-10 px-5 max-w-[1200px] mx-auto;
   }
 }
