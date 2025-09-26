@@ -17,7 +17,7 @@ const About = () => {
       scrollTrigger: {
         trigger: "#sticky_parent",
         start: "center center",
-        end: "+=1500 center",
+        end: "+=1000 center",
         pin: true,
         scrub: 2,
         pinSpacing: true,
@@ -31,7 +31,6 @@ const About = () => {
     }).to("#clip", {
       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
       delay: 0.75,
-      duration: 2,
     });
   });
 
@@ -43,14 +42,14 @@ const About = () => {
       <SectionTitle text={"About us"} />
       <div className="bg-background-black w-screen min-h-dvh">
         <div className="w-full">
-          <div id="sticky_parent" className="min-h-dvh relative">
+          <div id="sticky_parent" className="h-dvh relative">
             <div
               id="sticky"
-              className="text-center max-md:px-11 z-10 flex justify-center h-dvh items-center py-12"
+              className="text-center sticky top-0 flex justify-center items-center py-12"
             >
               <p
                 id="about-title"
-                className="text-3xl md:text-7xl md:max-w-md mx-auto text-center md:text-left text-background font-roboto-semibold md:leading-[4rem]"
+                className="text-3xl md:text-7xl max-w-md mx-auto text-left text-background font-roboto-semibold md:leading-[4.3rem]"
               >
                 We don't
                 <br /> guess,
@@ -61,7 +60,7 @@ const About = () => {
             </div>
             <div
               id="clip"
-              className="absolute top-0 left-0 z-20 h-dvh w-full grid place-content-center bg-background-black"
+              className="absolute top-0 left-0 h-dvh w-full grid place-content-center bg-background-black"
               style={{
                 clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
               }}

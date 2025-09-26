@@ -3,9 +3,9 @@ import About from "./sections/About";
 
 function App() {
   return (
-    <main className="min-h-dvh w-screen overflow-x-hidden">
+    <main className="min-h-dvh w-screen">
       <Hero />
-      <About/>
+      <About />
     </main>
   );
 }
