@@ -104,4 +104,7 @@
       }
     }
   }
+  .story_text_line {
+    overflow: hidden;
+  }
 }

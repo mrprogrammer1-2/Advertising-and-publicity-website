@@ -13,6 +13,11 @@ const About = () => {
       linesClass: "about_big_txt",
     });
 
+    const storySplit = SplitText.create("#story-text", {
+      type: "lines, words",
+      linesClass: "story_text_line",
+    });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#sticky_parent",
@@ -28,11 +33,27 @@ const About = () => {
       opacity: 0,
       ease: "power1.inOut",
       stagger: 0.02,
-    }).to("#clip", {
-      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
-      delay: 0.75,
-      duration: 2,
-    });
+    })
+      .to("#clip", {
+        clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+        delay: 0.75,
+        duration: 2,
+      })
+      .from(
+        storySplit.words,
+        {
+          y: "-200px",
+          stagger: 0.02,
+        },
+        "-=1.3"
+      )
+      .to(
+        "#story-imgs > div",
+        {
+          clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+        },
+        "-=1"
+      );
   });
 
   return (
@@ -66,37 +87,38 @@ const About = () => {
                 clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
               }}
             >
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-                voluptatem expedita doloremque repellendus, eius eveniet, magni
-                hic quo excepturi, omnis ipsum dolor totam asperiores. Assumenda
-                alias iste error necessitatibus voluptate.
-              </p>
-            </div>
-          </div>
-
-          <div
-            id="story"
-            className="mt-48 relative flex max-md:items-center justify-center items-center flex-col md:flex-row gap-24 md:gap-40"
-          >
-            <p className="text-xl text-text font-roboto-regular max-w-md text-center overflow-hidden">
-              Founded in 2018, CreativeEdge Agency was born from a simple
-              belief: every brand has a unique story worth telling. What started
-              as a small team of passionate creatives working out of a shared
-              workspace has evolved into a full-service advertising and
-              publicity powerhouse.
-            </p>
-            <div id="story-imgs" className="relative max-md:pl-6 md:pb-9">
               <div
-                className="size-60 rounded-lg overflow-hidden bg-emerald-400 grid place-content-center-safe"
-                style={{
-                  clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-                }}
+                id="story"
+                className="-mt-40 relative flex max-md:items-center justify-center items-center flex-col md:flex-row gap-24 md:gap-40"
               >
-                <div className="w-full h-full">img</div>
-              </div>
-              <div className="size-60 rounded-lg overflow-hidden bg-blue-400 grid place-content-center-safe absolute right-20 top-20 ">
-                <div className="w-full h-full">img</div>
+                <p
+                  id="story-text"
+                  className="text-xl text-text font-roboto-regular max-w-md text-left overflow-hidden"
+                >
+                  Founded in 2018, CreativeEdge Agency was born from a simple
+                  belief: every brand has a unique story worth telling. What
+                  started as a small team of passionate creatives working out of
+                  a shared workspace has evolved into a full-service advertising
+                  and publicity powerhouse.
+                </p>
+                <div id="story-imgs" className="relative max-md:pl-6 md:pb-9">
+                  <div
+                    className="size-60 rounded-lg overflow-hidden bg-emerald-400 grid place-content-center-safe"
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
+                    }}
+                  >
+                    <div className="w-full h-full">img</div>
+                  </div>
+                  <div
+                    className="size-60 rounded-lg absolute overflow-hidden bg-blue-400 grid place-content-center-safe right-20 top-20 "
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
+                    }}
+                  >
+                    <div className="w-full h-full">img</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
