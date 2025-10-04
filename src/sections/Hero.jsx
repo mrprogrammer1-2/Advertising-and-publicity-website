@@ -73,18 +73,19 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-dvh w-screen relative">
-      <div className="container !min-h-dvh relative">
+      <div className="w-full !min-h-dvh relative">
         <div className="z-10 mt-28 text-center relative overflow-hidden">
           <h1
             id="split"
-            className="font-playfair-bold text-black text-3xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight tracking-tight uppercase"
+            className="font-roboto-bold text-black w-full text-3xl sm:text-5xl md:text-6xl xl:text-[8rem] leading-tighter tracking-[-0.07em] uppercase"
+            style={{ wordSpacing: '-0.05em' }}
           >
             We Build Brands{window.innerWidth <= 480 ? <br /> : " "}That Pulse
           </h1>
         </div>
 
         <div
-          className="size-64 md:size-72 overflow-hidden rounded-lg absolute top-[23rem] -translate-x-1/2 md:top-45 md:translate-none md:right-5 max-md:left-1/2 border-muted border"
+          className="size-64 md:size-72 overflow-hidden rounded-lg absolute top-[23rem] -translate-x-1/2 md:top-45 md:translate-none md:right-60 max-md:left-1/2 border-muted border"
           id="img"
           style={{
             clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
@@ -98,7 +99,7 @@ const Hero = () => {
         </div>
 
         <div
-          className="hidden w-72 lg:block overflow-hidden rounded-lg absolute bottom-24 left-24 border-muted border"
+          className="hidden w-72 lg:block overflow-hidden rounded-lg absolute bottom-50 left-60 border-muted border"
           id="img2"
           style={{
             clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",

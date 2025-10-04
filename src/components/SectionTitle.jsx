@@ -30,7 +30,7 @@ const SectionTitle = ({ text }) => {
 
   return (
     <div id="title" className="text-center overflow-hidden">
-      <h1 className="text-3xl sm:text-5xl md:text-8xl font-playfair-semibold mt-11 mb-8">
+      <h1 className="text-3xl sm:text-5xl md:text-[15rem] tracking-[-0.08em] text-black uppercase font-roboto-bold  mt-11 mb-8">
         {text}
       </h1>
     </div>

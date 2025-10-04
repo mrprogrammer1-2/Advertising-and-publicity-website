@@ -54,6 +54,55 @@ const About = () => {
         },
         "-=1"
       );
+
+    const secondP = SplitText.create("#second-p", {
+      type: "lines, words",
+      linesClass: "story_text_line",
+    });
+
+
+    gsap.from(secondP.words, {
+      scrollTrigger: {
+        trigger: "#about-second-part",
+        start: "top center",
+        // end: "center center",
+        // scrub: 2,
+      },
+      y: "-200px",
+      stagger: 0.02,
+      duration: 1,
+      ease: "power1.inOut",
+      stagger: 0.02,
+    });
+
+    gsap.to("#team > .imgs > div:first-of-type", {
+      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+      scrollTrigger: {
+        trigger: "#team",
+        start: "top center",
+        end: "center center",
+        scrub: 3,
+      }
+    })
+    gsap.to("#team > .imgs > div:nth-child(2)", {
+      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+      scrollTrigger: {
+        trigger: "#team",
+        start: "top 60%",
+        end: "center 60%",
+        scrub: 1.5,
+      }
+    })
+    gsap.to("#team > .imgs > div:nth-child(3)", {
+      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+      scrollTrigger: {
+        trigger: "#team",
+        start: "top center",
+        end: "center center",
+        scrub: 1,
+      }
+    })
+
   });
 
   return (
@@ -103,7 +152,7 @@ const About = () => {
                 </p>
                 <div id="story-imgs" className="relative max-md:pl-6 md:pb-9">
                   <div
-                    className="size-60 rounded-lg overflow-hidden bg-emerald-400 grid place-content-center-safe"
+                    className="size-48 md:size-60 rounded-lg overflow-hidden bg-emerald-400 grid place-content-center-safe"
                     style={{
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                     }}
@@ -111,7 +160,7 @@ const About = () => {
                     <div className="w-full h-full">img</div>
                   </div>
                   <div
-                    className="size-60 rounded-lg absolute overflow-hidden bg-blue-400 grid place-content-center-safe right-20 top-20 "
+                    className="size-48 md:size-60 rounded-lg absolute overflow-hidden bg-blue-400 grid place-content-center-safe right-20 top-20 "
                     style={{
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                     }}
@@ -122,6 +171,49 @@ const About = () => {
               </div>
             </div>
           </div>
+            <div id="about-second-part" className="w-full bg-background-black min-h-dvh px-9">
+              <div className="w-full h-full border-t-2 border-[#666] pt-32">
+                <div className="pl-14">
+                  <p id="second-p" className="text-3xl md:text-4xl lg:text-5xl md:leading-14 font-playfair-semibold">
+                    Our journey <span className="px-8">began</span> when our <span className="px-12">founders</span> chose to <span className="px-6">build</span> distinctive work — preventing brands from getting <span className="px-10">lost</span> and making it our <span className="px-14">mission</span> to create <span className="px-4">unforgettable</span> campaigns.
+                    </p>
+                </div>
+                <div id="team" className="h-dvh mt-44 md:mt-60 flex gap-10 md:gap-16 flex-col md:flex-row justify-end">
+                  <div className="imgs flex gap-3 md:gap-9">
+                    <div
+                    className="w-60 object-cover max-h-90"
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
+                    }}>
+
+                    <img src="/images/team-1.jpg" className="object-cover h-full" />
+                    </div>
+                    <div style={{
+                      clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
+                    }}>
+                    <img src="/images/team-2.jpg" className="w-60 mt-8 object-cover max-h-64" />
+
+                    </div>
+                    <div 
+                    className="w-40 -mt-9 md:-mt-9 max-h-64 "
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
+                    }}>
+
+                    <img src="/images/team-3.jpg" className="h-full object-cover" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-7">
+                  <p className="text-2xl mt-16 max-w-[34rem] font-roboto-regular leading-6">
+                    <q>Our team is a fusion of strategic minds and creative visionaries, turning bold ideas into unforgettable campaigns.</q>
+                  </p>
+                  <p className="text-2xl max-w-[34rem] font-roboto-regular leading-6">
+                    <q>We're the dreamers and doers, crafting data-driven campaigns that don't just capture attention—they capture market share.</q>
+                  </p>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </section>
