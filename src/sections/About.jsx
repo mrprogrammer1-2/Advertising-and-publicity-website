@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
+   
     const parSplit = SplitText.create("#about-title", {
       type: "words, chars",
       linesClass: "about_big_txt",
@@ -60,7 +61,6 @@ const About = () => {
       linesClass: "story_text_line",
     });
 
-
     gsap.from(secondP.words, {
       scrollTrigger: {
         trigger: "#about-second-part",
@@ -82,8 +82,8 @@ const About = () => {
         start: "top center",
         end: "center center",
         scrub: 3,
-      }
-    })
+      },
+    });
     gsap.to("#team > .imgs > div:nth-child(2)", {
       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
       scrollTrigger: {
@@ -91,8 +91,8 @@ const About = () => {
         start: "top 60%",
         end: "center 60%",
         scrub: 1.5,
-      }
-    })
+      },
+    });
     gsap.to("#team > .imgs > div:nth-child(3)", {
       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
       scrollTrigger: {
@@ -100,18 +100,17 @@ const About = () => {
         start: "top center",
         end: "center center",
         scrub: 1,
-      }
-    })
-
+      },
+    });
   });
 
   return (
     <section
       id="about"
-      className="min-h-dvh py-14 pb-24 sm:py-20 mt-18 text-text-heading"
+      className="min-h-dvh pt-14 sm:py-20 mt-18 text-text-heading"
     >
-      <SectionTitle text={"About us"} />
-      <div className="bg-background-black w-screen min-h-dvh">
+      <SectionTitle text={"about us"}/>
+      <div className="bg-background-black w-screen min-h-dvh pb-14">
         <div className="w-full">
           <div id="sticky_parent" className="min-h-dvh relative">
             <div
@@ -171,49 +170,82 @@ const About = () => {
               </div>
             </div>
           </div>
-            <div id="about-second-part" className="w-full bg-background-black min-h-dvh px-9">
-              <div className="w-full h-full border-t-2 border-[#666] pt-32">
-                <div className="pl-14">
-                  <p id="second-p" className="text-3xl md:text-4xl lg:text-5xl md:leading-14 font-playfair-semibold">
-                    Our journey <span className="px-8">began</span> when our <span className="px-12">founders</span> chose to <span className="px-6">build</span> distinctive work — preventing brands from getting <span className="px-10">lost</span> and making it our <span className="px-14">mission</span> to create <span className="px-4">unforgettable</span> campaigns.
-                    </p>
-                </div>
-                <div id="team" className="h-dvh mt-44 md:mt-60 flex gap-10 md:gap-16 flex-col md:flex-row justify-end">
-                  <div className="imgs flex gap-3 md:gap-9">
-                    <div
+          <div
+            id="about-second-part"
+            className="w-full bg-background-black min-h-dvh px-9"
+          >
+            <div className="w-full h-full border-t-2 border-[#666] pt-32">
+              <div className="pl-14">
+                <p
+                  id="second-p"
+                  className="text-3xl md:text-4xl lg:text-5xl md:leading-14 font-playfair-semibold"
+                >
+                  Our journey <span className="px-8">began</span> when our{" "}
+                  <span className="px-12">founders</span> chose to{" "}
+                  <span className="px-6">build</span> distinctive work —
+                  preventing brands from getting{" "}
+                  <span className="px-10">lost</span> and making it our{" "}
+                  <span className="px-14">mission</span> to create{" "}
+                  <span className="px-4">unforgettable</span> campaigns.
+                </p>
+              </div>
+              <div
+                id="team"
+                className="h-dvh mt-16 md:mt-60 flex gap-10 md:gap-16 flex-col md:flex-row justify-end"
+              >
+                <div className="imgs flex gap-3 md:gap-9">
+                  <div
                     className="w-60 object-cover max-h-90"
                     style={{
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
-                    }}>
-
-                    <img src="/images/team-1.jpg" className="object-cover h-full" />
-                    </div>
-                    <div style={{
+                    }}
+                  >
+                    <img
+                      src="/images/team-1.jpg"
+                      className="object-cover h-full"
+                    />
+                  </div>
+                  <div
+                    style={{
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
-                    }}>
-                    <img src="/images/team-2.jpg" className="w-60 mt-8 object-cover max-h-64" />
-
-                    </div>
-                    <div 
+                    }}
+                  >
+                    <img
+                      src="/images/team-2.jpg"
+                      className="w-60 mt-8 object-cover max-h-64"
+                    />
+                  </div>
+                  <div
                     className="w-40 -mt-9 md:-mt-9 max-h-64 "
                     style={{
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
-                    }}>
-
-                    <img src="/images/team-3.jpg" className="h-full object-cover" />
-                    </div>
+                    }}
+                  >
+                    <img
+                      src="/images/team-3.jpg"
+                      className="h-full object-cover"
+                    />
                   </div>
-                  <div className="flex flex-col gap-7">
+                </div>
+                <div className="flex flex-col gap-7">
                   <p className="text-2xl mt-16 max-w-[34rem] font-roboto-regular leading-6">
-                    <q>Our team is a fusion of strategic minds and creative visionaries, turning bold ideas into unforgettable campaigns.</q>
+                    <q>
+                      Our team is a fusion of strategic minds and creative
+                      visionaries, turning bold ideas into unforgettable
+                      campaigns.
+                    </q>
                   </p>
                   <p className="text-2xl max-w-[34rem] font-roboto-regular leading-6">
-                    <q>We're the dreamers and doers, crafting data-driven campaigns that don't just capture attention—they capture market share.</q>
+                    <q>
+                      We're the dreamers and doers, crafting data-driven
+                      campaigns that don't just capture attention—they capture
+                      market share.
+                    </q>
                   </p>
-                  </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
