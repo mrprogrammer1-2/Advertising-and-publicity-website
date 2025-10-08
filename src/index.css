@@ -107,4 +107,8 @@
   .story_text_line {
     overflow: hidden;
   }
+  .service-line {
+    overflow: hidden;
+    display: inline-block;
+  }
 }
