@@ -12,6 +12,7 @@ const Hero = () => {
     });
     const txtSplit = SplitText.create("#txt", {
       type: "lines",
+      linesClass: "hero_line",
     });
     const tl = gsap.timeline({
       delay: 1,
@@ -70,6 +71,9 @@ const Hero = () => {
         y: -200,
       });
   });
+  // ======================================================
+  // add to hero section => (Discover, Strategize, Create, Launch, Analyze)
+  // ======================================================
 
   return (
     <section id="home" className="min-h-dvh w-screen relative">
@@ -78,7 +82,7 @@ const Hero = () => {
           <h1
             id="split"
             className="font-roboto-bold text-black w-full text-3xl sm:text-5xl md:text-6xl xl:text-[8rem] leading-tighter tracking-[-0.07em] uppercase"
-            style={{ wordSpacing: '-0.05em' }}
+            style={{ wordSpacing: "-0.05em" }}
           >
             We Build Brands{window.innerWidth <= 480 ? <br /> : " "}That Pulse
           </h1>
@@ -110,10 +114,10 @@ const Hero = () => {
             className="w-full h-full object-cover object-center scale-110"
           />
         </div>
-        <div className="lg:max-w-md md:absolute sm:left-[40%] lg:left-1/2 md:-translate-x-1/2 md:pl-3 mt-11 sm:mr-32  overflow-hidden">
+        <div className="md:max-w-md md:absolute sm:left-[40%] md:left-1/2 md:-translate-x-1/2 mt-6 overflow-hidden">
           <p
             id="txt"
-            className="text-center sm:text-left lg:text-center text-sm font-roboto-regular text-gray-800 text-shadow-2xs md:pr-3"
+            className="text-center sm:text-left md:!text-center text-sm font-roboto-regular text-gray-800 text-shadow-2xs"
           >
             A modern advertising agency where data-driven strategy meets
             breathtaking creativity.

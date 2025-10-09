@@ -9,9 +9,6 @@ const Testimonial = () => {
       scrollTrigger: {
         trigger: "#testimonial",
         start: "center 60%",
-        // end: "center 50%",
-        // scrub: true,
-        markers: true,
       },
     });
     tl.to(".test-clip", {
@@ -23,9 +20,9 @@ const Testimonial = () => {
   return (
     <section id="testimonial" className="min-h-dvh relative w-screen py-5">
       <SectionTitle text={"Testimonial"} />
-      <div className="w-full flex flex-col md:flex-row gap-32 px-32 mt-40">
+      <div className="w-full flex flex-col md:flex-row md:gap-16 lg:gap-32 md:px-16 lg:px-32 mt-40">
         <div
-          className="test-clip flex-1 min-h-44 p-8 border-2 border-black rounded-2xl"
+          className="test-clip flex-1 lg:min-h-44 p-8 border-2 border-black rounded-2xl"
           style={{
             clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
           }}
