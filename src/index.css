@@ -114,4 +114,11 @@
     overflow: hidden;
     display: inline-block;
   }
+  .contact_line {
+    overflow: hidden;
+    display: inline-block;
+  }
+  .mobile_service.active_service > div {
+    @apply h-32 transition-all duration-300
+  }
 }

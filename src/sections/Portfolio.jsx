@@ -1,10 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import SectionTitle from "../components/SectionTitle";
-import { MdDescription } from "react-icons/md";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap/all";
 
 const Portfolio = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const projects = [
     {
       title: "Brew & Bean Rebrand",
@@ -37,8 +37,7 @@ const Portfolio = () => {
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#portfolio",
-        start: "center 60%",
-        markers: true,
+        start: screenWidth > 768 ? "center 60%" : "top 60%",
       },
     });
   });
@@ -46,7 +45,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="min-h-dvh w-screen">
       <SectionTitle text={"Portfolio"} />
-      <div className="text-center py-6 text-3xl font-playfair-semibold">
+      <div className="text-center py-6 text-3xl font-playfair-semibold px-3">
         <p> Our Pulse & Featured Work</p>
       </div>
       <div className=" min-h-dvh px-4 py-9">

@@ -2,11 +2,16 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
+import { useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
   useGSAP(() => {
+    // const innerWidth = window.innerWidth;
+
     const introSplit = SplitText.create("#split", {
       type: "words, chars",
     });
@@ -21,7 +26,8 @@ const Hero = () => {
       yPercent: 200,
       stagger: {
         each: 0.03,
-        from: window.innerWidth > 480 ? "center" : "",
+        from: screenWidth > 480 ? "center" : "left",
+        // from: "left",
       },
       ease: "bounce.inOur",
     })
@@ -54,22 +60,24 @@ const Hero = () => {
         "-=0.4"
       );
 
-    const imgTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#home",
-        start: "top top",
-        end: "60% top",
-        scrub: true,
-      },
-    });
-
-    imgTl
-      .to("#img", {
-        y: 150,
-      })
-      .to("#img2", {
-        y: -200,
+    if (screenWidth > 768) {
+      const imgTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#home",
+          start: "top top",
+          end: "60% top",
+          scrub: true,
+        },
       });
+
+      imgTl
+        .to("#img", {
+          y: 150,
+        })
+        .to("#img2", {
+          y: -200,
+        });
+    }
   });
   // ======================================================
   // add to hero section => (Discover, Strategize, Create, Launch, Analyze)
@@ -81,7 +89,7 @@ const Hero = () => {
         <div className="z-10 mt-28 text-center relative overflow-hidden">
           <h1
             id="split"
-            className="font-roboto-bold text-black w-full text-3xl sm:text-5xl md:text-6xl xl:text-[8rem] leading-tighter tracking-[-0.07em] uppercase"
+            className="font-roboto-bold text-black w-full text-5xl md:text-6xl xl:text-[8rem] leading-tighter tracking-[-0.07em] uppercase"
             style={{ wordSpacing: "-0.05em" }}
           >
             We Build Brands{window.innerWidth <= 480 ? <br /> : " "}That Pulse

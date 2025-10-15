@@ -117,7 +117,7 @@ const Services = () => {
       <div className="h-[70vh] !p-0 overflow-hidden">
         <div className="w-full h-full flex justify-center">
           {/* Service 1 */}
-          <div className="service flex-1 border-l-4 border-black pt-4 px-8 text-center overflow-hidden">
+          <div className="service flex-1 border-t-2 border-l-4 border-black pt-4 px-8 text-center overflow-hidden">
             <div className="overflow-hidd">
               <h2 className="text-3xl font-roboto-semibold text-black tracking-tighter">
                 Brand Strategy
@@ -146,7 +146,7 @@ const Services = () => {
           </div>
 
           {/* Service 2 */}
-          <div className="service flex-1 border-l-2 border-black  pt-4 px-8 text-center overflow-hidden">
+          <div className="service flex-1 border-t-2 border-l-2 border-black  pt-4 px-8 text-center overflow-hidden">
             <div className="overflow-hidden">
               <h2 className="text-3xl font-roboto-semibold text-black tracking-tighter">
                 Creative & Design
@@ -177,7 +177,7 @@ const Services = () => {
           </div>
 
           {/* Service 3 */}
-          <div className="service flex-1 border-l-2 border-black  pt-4 px-8 text-center overflow-hidden">
+          <div className="service flex-1 border-t-2 border-l-2 border-black  pt-4 px-8 text-center overflow-hidden">
             <div className="overflow-hidden">
               <h2 className="text-3xl font-roboto-semibold text-black tracking-tighter">
                 Digital Marketing
@@ -208,7 +208,7 @@ const Services = () => {
           </div>
 
           {/* Service 4 */}
-          <div className="service flex-1 border-l-2 border-r-4 border-black  pt-4 px-8 text-center overflow-hidden">
+          <div className="service flex-1 border-t-2 border-l-2 border-r-4 border-black  pt-4 px-8 text-center overflow-hidden">
             <div className="overflow-hidden">
               <h2 className="text-3xl font-roboto-semibold text-black tracking-tighter">
                 Data & Analytics

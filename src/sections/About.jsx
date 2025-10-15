@@ -3,12 +3,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
+import { useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useGSAP(() => {
-   
     const parSplit = SplitText.create("#about-title", {
       type: "words, chars",
       linesClass: "about_big_txt",
@@ -109,7 +110,7 @@ const About = () => {
       id="about"
       className="min-h-dvh pt-14 sm:py-20 mt-18 text-text-heading"
     >
-      <SectionTitle text={"about us"}/>
+      <SectionTitle text={"about us"} />
       <div className="bg-background-black w-screen min-h-dvh pb-14">
         <div className="w-full">
           <div id="sticky_parent" className="min-h-dvh relative">
@@ -119,7 +120,7 @@ const About = () => {
             >
               <p
                 id="about-title"
-                className="text-3xl md:text-7xl md:max-w-md mx-auto text-center md:text-left text-background font-roboto-semibold md:leading-[4rem]"
+                className="text-6xl md:text-7xl md:max-w-md mx-auto text-center md:text-left text-background font-roboto-semibold md:leading-[4rem]"
               >
                 We don't
                 <br /> guess,
@@ -137,7 +138,7 @@ const About = () => {
             >
               <div
                 id="story"
-                className="-mt-40 relative flex max-md:items-center justify-center items-center flex-col md:flex-row gap-24 md:gap-40"
+                className="-mt-20 relative flex max-md:items-center justify-center items-center flex-col md:flex-row gap-24 md:gap-40"
               >
                 <p
                   id="story-text"
@@ -175,7 +176,7 @@ const About = () => {
             className="w-full bg-background-black min-h-dvh px-9"
           >
             <div className="w-full h-full border-t-2 border-[#666] pt-32">
-              <div className="pl-14">
+              <div className="pl-14 mt-8">
                 <p
                   id="second-p"
                   className="text-3xl md:text-4xl lg:text-5xl md:leading-14 font-playfair-semibold"

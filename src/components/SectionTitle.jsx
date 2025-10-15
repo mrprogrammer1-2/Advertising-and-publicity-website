@@ -2,9 +2,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
+import { useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 const SectionTitle = ({ text }) => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useGSAP(() => {
     const titles = gsap.utils.toArray(".title");
 
@@ -18,8 +20,8 @@ const SectionTitle = ({ text }) => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: title,
-          start: "top 60%",
-          end: "top 20%",
+          start: screenWidth > 640 ? "top 60%" : "top 90%",
+          end: screenWidth > 640 ? "top 20%" : "top 60%",
           scrub: true,
         },
         stagger: {
