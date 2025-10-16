@@ -11,15 +11,27 @@ function Contact() {
     const contactSplit_2 = SplitText.create(".head_2", {
       type: "chars, words",
     });
+    let tl;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#contact",
-        start: "top 20%",
-        end: "top -=500",
-        scrub: true,
-      },
-    });
+    if (window.innerWidth > 768) {
+      tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 20%",
+          end: "top -=500",
+          scrub: true,
+        },
+      });
+    } else {
+      tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 40%",
+          end: "top 20%",
+          scrub: true,
+        },
+      });
+    }
     tl.from(contactSplit_1.chars, {
       yPercent: -200,
       stagger: {

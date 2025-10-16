@@ -30,15 +30,17 @@ const Portfolio = () => {
     gsap.set(".project", {
       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
     });
-
-    gsap.to(".project", {
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-      duration: 0.95,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: "#portfolio",
-        start: screenWidth > 768 ? "center 60%" : "top 60%",
-      },
+    const projects = gsap.utils.toArray(".project");
+    projects.forEach((project, index) => {
+      gsap.to(project, {
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        duration: 0.6,
+        delay: 0.6,
+        scrollTrigger: {
+          trigger: project,
+          start: screenWidth > 768 ? "center 60%" : "top 60%",
+        },
+      });
     });
   });
 
@@ -53,9 +55,6 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              //   style={{
-              //     flexBasis: "calc(33% - 1.25rem)",
-              //   }}
               className="project min-h-[27rem] h-fit bg-black rounded-md overflow-hidden font-roboto-regular max-w-96 md:flex-1 "
             >
               <div className="size-44 border-2 border-gray-300 rounded-tl-md rounded-tr-md bg-red-400 w-full">

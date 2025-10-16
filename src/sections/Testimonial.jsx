@@ -11,6 +11,27 @@ const Testimonial = () => {
         start: "center 60%",
       },
     });
+    const tests = gsap.utils.toArray(".test-clip");
+    tests.forEach((test, index) => {
+      gsap.to(test, {
+        scrollTrigger: {
+          trigger: test,
+          start: "top 80%",
+        },
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        duration: 0.6,
+        // delay: index * 0.3,
+        ease: "power1.inOut",
+        onStart: () => {
+          gsap.from(test.querySelector("#profile"), {
+            y: "100px",
+            opacity: 0,
+            duration: 0.5,
+            ease: "power1.inOut",
+          });
+        },
+      });
+    });
     tl.to(".test-clip", {
       ease: "power1.inOut",
       duration: 0.5,
