@@ -120,7 +120,7 @@ const About = () => {
             >
               <p
                 id="about-title"
-                className="text-6xl md:text-7xl md:max-w-md mx-auto text-center md:text-left text-background font-roboto-semibold md:leading-[4rem]"
+                className="text-4xl md:text-7xl md:max-w-md mx-auto text-center md:text-left text-background font-roboto-semibold md:leading-[4rem]"
               >
                 We don't
                 <br /> guess,
