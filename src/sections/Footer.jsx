@@ -24,10 +24,10 @@ const Footer = () => {
   });
 
   return (
-    <footer id="footer" className=" pt-16 md:pt-28 pb-20">
-      <div className=" pt-28 flex w-full  px-16  py-4">
-        <div className="h-full w-full flex flex-col-reverse md:flex-row justify-between items-center md:items-end">
-          <div className="section-tags flex  md:flex-col gap-4 text-xl font-roboto-regular">
+    <footer id="footer" className=" pt-16 md:pt-28 pb-20 ">
+      <div className=" pt-28 flex w-full py-4">
+        <div className="h-full w-full flex px-16 flex-col-reverse md:flex-row justify-between items-center md:items-end">
+          <div className="section-tags flex  md:flex-col gap-4 text-sm sm:text-xl font-roboto-regular">
             <a href="#about" className="flex-1 whitespace-nowrap">
               ABOUT US
             </a>
