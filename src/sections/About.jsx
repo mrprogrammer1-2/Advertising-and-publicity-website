@@ -108,12 +108,12 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-dvh pt-14 sm:py-20 mt-18 text-text-heading"
+      className="min-h-dvh pt-8 sm:py-20 mt-2 text-text-heading"
     >
       <SectionTitle text={"about us"} />
-      <div className="bg-background-black w-screen min-h-dvh pb-14">
+      <div className="bg-background-black w-screen min-h-svh pb-14">
         <div className="w-full">
-          <div id="sticky_parent" className="min-h-dvh relative">
+          <div id="sticky_parent" className="min-h-svh relative">
             <div
               id="sticky"
               className="text-center max-md:px-11 z-10 flex justify-center h-dvh items-center py-12"
@@ -138,7 +138,7 @@ const About = () => {
             >
               <div
                 id="story"
-                className="-mt-20 relative flex max-md:items-center justify-center items-center flex-col md:flex-row gap-24 md:gap-40"
+                className="-mt-20 relative flex max-md:items-center justify-center items-center flex-col-reverse md:flex-row gap-24 md:gap-40"
               >
                 <p
                   id="story-text"
@@ -175,19 +175,29 @@ const About = () => {
             id="about-second-part"
             className="w-full bg-background-black min-h-dvh px-9"
           >
-            <div className="w-full h-full border-t-2 border-[#666] pt-32">
-              <div className="pl-14 mt-8">
+            <div className="w-full h-full border-t-2 border-[#666] pt-12 md:pt-32">
+              <div className="md:pl-14 md:mt-8">
                 <p
                   id="second-p"
                   className="text-3xl md:text-4xl lg:text-5xl md:leading-14 font-playfair-semibold"
                 >
-                  Our journey <span className="px-8">began</span> when our{" "}
-                  <span className="px-12">founders</span> chose to{" "}
-                  <span className="px-6">build</span> distinctive work —
-                  preventing brands from getting{" "}
-                  <span className="px-10">lost</span> and making it our{" "}
-                  <span className="px-14">mission</span> to create{" "}
-                  <span className="px-4">unforgettable</span> campaigns.
+                  {window.screen > 768 ? (
+                    <>
+                      Our journey began when our{" "}
+                      <span className="px-8">founders</span> chose to{" "}
+                      <span className="px-6">build</span> distinctive work —
+                      preventing brands from getting{" "}
+                      <span className="px-10">lost</span> and making it our{" "}
+                      <span className="px-14">mission</span> to create{" "}
+                      <span className="px-4">unforgettable</span> campaigns.
+                    </>
+                  ) : (
+                    <>
+                      Our journey began when our founders chose to build
+                      distinctive work — preventing brands from getting lost and
+                      making it our mission to create unforgettable campaigns.
+                    </>
+                  )}
                 </p>
               </div>
               <div

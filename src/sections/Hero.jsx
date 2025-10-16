@@ -97,7 +97,7 @@ const Hero = () => {
         </div>
 
         <div
-          className="size-64 md:size-72 overflow-hidden rounded-lg absolute top-[23rem] -translate-x-1/2 md:top-45 md:translate-none md:right-60 max-md:left-1/2 border-muted border"
+          className="size-64 md:size-72 overflow-hidden rounded-lg md:absolute mx-auto md:top-45 md:translate-none md:right-60 border-muted border"
           id="img"
           style={{
             clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
