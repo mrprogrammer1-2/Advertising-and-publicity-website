@@ -47,12 +47,12 @@ const Header = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="#">
+            <a className="block" href="#">
               <span className="sr-only">Home</span>
               <img
                 src="/images/logo.svg"
                 alt="pixel & pulse"
-                className="w-32 max-h-full"
+                className="w-20 md:w-32 max-h-full"
               />
             </a>
           </div>
@@ -118,7 +118,7 @@ const Header = () => {
 
             <div className="flex items-center gap-4">
               <div className="block md:hidden">
-                <button 
+                <button
                   onClick={() => setIsMenuOpen(true)}
                   className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
                 >

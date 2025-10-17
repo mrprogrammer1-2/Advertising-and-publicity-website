@@ -80,46 +80,46 @@ const Menu = ({ isOpen, onClose }) => {
           ×
         </button>
 
-        <nav className="flex flex-col gap-8 text-center mt-16">
+        <nav className="flex flex-col gap-6 text-center mt-16">
           <a
             href="#home"
             onClick={onClose}
-            className="menu-section text-white text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
+            className="menu-section text-white text-xl md:text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
           >
             <p>Home</p>
           </a>
           <a
             href="#about"
             onClick={onClose}
-            className="menu-section text-white text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
+            className="menu-section text-white text-xl md:text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
           >
             <p>About</p>
           </a>
           <a
             href="#services"
             onClick={onClose}
-            className="menu-section text-white text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
+            className="menu-section text-white text-xl md:text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
           >
             <p>Services</p>
           </a>
           <a
             href="#portfolio"
             onClick={onClose}
-            className="menu-section text-white text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
+            className="menu-section text-white text-xl md:text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
           >
             <p>Portfolio</p>
           </a>
           <a
             href="#contact"
             onClick={onClose}
-            className="menu-section text-white text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
+            className="menu-section text-white text-xl md:text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
           >
             <p>Contact</p>
           </a>
           <a
             href="#testimonial"
             onClick={onClose}
-            className="menu-section text-white text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
+            className="menu-section text-white text-xl md:text-2xl font-roboto-regular hover:text-gray-300 transition overflow-hidden"
           >
             <p>Testimonials</p>
           </a>
