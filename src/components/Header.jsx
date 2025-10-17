@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Menu from "./Menu";
 
 const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { y: currentScrollY } = useWindowScroll();
   const headerRef = useRef(null);
@@ -57,10 +59,10 @@ const Header = () => {
 
           <div className="md:flex md:items-center md:gap-12">
             <nav aria-label="Global" className="hidden md:block">
-              <ul className="flex items-center gap-6 text-sm">
+              <ul className="flex items-center gap-8">
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="transition hover:text-gray-500/75 uppercase font-roboto-regular text-black text-xl"
                     href="#home"
                   >
                     Home
@@ -69,7 +71,7 @@ const Header = () => {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="transition hover:text-gray-500/75 uppercase font-roboto-regular text-black text-xl"
                     href="#about"
                   >
                     About
@@ -78,7 +80,7 @@ const Header = () => {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="transition hover:text-gray-500/75 uppercase font-roboto-regular text-black text-xl"
                     href="#services"
                   >
                     Services
@@ -87,7 +89,7 @@ const Header = () => {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="transition hover:text-gray-500/75 uppercase font-roboto-regular text-black text-xl"
                     href="#portfolio"
                   >
                     Portfolio
@@ -96,7 +98,7 @@ const Header = () => {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="transition hover:text-gray-500/75 uppercase font-roboto-regular text-black text-xl"
                     href="#contact"
                   >
                     Contact
@@ -105,7 +107,7 @@ const Header = () => {
 
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="transition hover:text-gray-500/75 uppercase font-roboto-regular text-black text-xl"
                     href="#testimonial"
                   >
                     Testimonials
@@ -116,7 +118,10 @@ const Header = () => {
 
             <div className="flex items-center gap-4">
               <div className="block md:hidden">
-                <button className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                <button 
+                  onClick={() => setIsMenuOpen(true)}
+                  className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="size-5"
@@ -137,6 +142,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
 };

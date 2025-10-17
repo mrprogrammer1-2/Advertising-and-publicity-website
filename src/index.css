@@ -96,6 +96,9 @@
   }
   .floating-nav {
     @apply bg-black rounded-lg border;
+    a {
+      @apply text-white;
+    }
   }
   .hero_line {
     @apply text-center
@@ -118,6 +121,10 @@
     display: inline-block;
   }
   .contact_line {
+    overflow: hidden;
+    display: inline-block;
+  }
+  .menu-section-line {
     overflow: hidden;
     display: inline-block;
   }
