@@ -3,17 +3,24 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { useState } from "react";
+import { waitForFonts } from "../utils/fontLoader";
 
 gsap.registerPlugin(ScrollTrigger);
 const SectionTitle = ({ text }) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useGSAP(() => {
-    const titles = gsap.utils.toArray(".title");
+    waitForFonts().then(() => {
+      const titles = gsap.utils.toArray(".title");
+      
+      if (!titles.length) return;
 
-    titles.forEach((title) => {
-      const split = SplitText.create(title.querySelector("h1"), {
-        type: "chars",
-      });
+      titles.forEach((title) => {
+        const h1Element = title.querySelector("h1");
+        if (!h1Element) return;
+        
+        const split = SplitText.create(h1Element, {
+          type: "chars",
+        });
 
       gsap.from(split.chars, {
         yPercent: -400,
@@ -28,6 +35,7 @@ const SectionTitle = ({ text }) => {
           each: 0.02,
           from: "center",
         },
+        });
       });
     });
   });

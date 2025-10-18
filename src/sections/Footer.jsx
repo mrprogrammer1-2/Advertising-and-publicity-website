@@ -1,12 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { waitForFonts } from "../utils/fontLoader";
 
 const Footer = () => {
   useGSAP(() => {
-    const titleSplit = SplitText.create(".footer_title", {
-      type: "chars",
-    });
+    waitForFonts().then(() => {
+      const titleSplit = SplitText.create(".footer_title", {
+        type: "chars",
+      });
 
     gsap.from(titleSplit.chars, {
       yPercent: -200,
@@ -19,7 +21,8 @@ const Footer = () => {
       stagger: {
         each: 0.03,
         from: "center",
-      },
+        },
+      });
     });
   });
 

@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { useEffect, useState } from "react";
+import { waitForFonts } from "../utils/fontLoader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,15 +11,14 @@ const Hero = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useGSAP(() => {
-    // const innerWidth = window.innerWidth;
-
-    const introSplit = SplitText.create("#split", {
-      type: "words, chars",
-    });
-    const txtSplit = SplitText.create("#txt", {
-      type: "lines",
-      linesClass: "hero_line",
-    });
+    waitForFonts().then(() => {
+      const introSplit = SplitText.create("#split", {
+        type: "words, chars",
+      });
+      const txtSplit = SplitText.create("#txt", {
+        type: "lines",
+        linesClass: "hero_line",
+      });
     const tl = gsap.timeline({
       delay: 1,
     });
@@ -77,14 +77,15 @@ const Hero = () => {
         .to("#img2", {
           y: -200,
         });
-    }
+      }
+    });
   });
   // ======================================================
   // add to hero section => (Discover, Strategize, Create, Launch, Analyze)
   // ======================================================
 
   return (
-    <section id="home" className="min-h-dvh w-screen relative">
+    <section id="home" className="min-h-dvh w-screen relative pt-16">
       <div className="w-full !min-h-dvh relative">
         <div className="z-10 mt-28 text-center relative overflow-hidden">
           <h1

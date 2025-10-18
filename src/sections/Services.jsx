@@ -2,112 +2,113 @@ import SectionTitle from "../components/SectionTitle";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { waitForFonts } from "../utils/fontLoader";
 
 const Services = () => {
   useGSAP(() => {
-    const ctx = gsap.context(() => {
-      const services = gsap.utils.toArray(".service");
+    waitForFonts().then(() => {
+      const ctx = gsap.context(() => {
+        const services = gsap.utils.toArray(".service");
+        
+        if (!services.length) return;
 
-      services.forEach((service) => {
-        const text = service.querySelector("p");
-        const h2 = service.querySelector("h2");
+        services.forEach((service) => {
+          const text = service.querySelector("p");
+          const h2 = service.querySelector("h2");
+          const h3 = service.querySelector("h3");
+          const serviceImg = service.querySelector(".img");
+          
+          // Check if all elements exist
+          if (!text || !h2 || !h3 || !serviceImg) return;
 
-        const h2Split = new SplitText(h2, {
-          type: "words,lines",
-          linesClass: "service-line",
-        });
-
-        const h3 = service.querySelector("h3");
-        const serviceImg = service.querySelector(".img");
-
-        // Initial states
-        gsap.set(text, { opacity: 0 });
-        gsap.set(h3, { yPercent: -150, opacity: 0 });
-        gsap.set(serviceImg, {
-          clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-        });
-
-        let hoverTl;
-
-        const handleEnter = () => {
-          // Expand the flex item manually
-          gsap.to(service, {
-            flex: 2,
-            duration: 0.5,
-            ease: "power1.inOut",
+          const h2Split = new SplitText(h2, {
+            type: "words,lines",
+            linesClass: "service-line",
           });
 
-          if (hoverTl) hoverTl.kill();
-          hoverTl = gsap.timeline({
-            defaults: { ease: "power2.out" },
-          });
-
-          hoverTl
-            // Hide h2 instantly
-            .to(h2Split.words, { yPercent: -200, duration: 0.5 })
-            // Animate image reveal
-            .to(
-              serviceImg,
-              {
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                duration: 0.6,
-                delay: 0.6,
-              },
-              0
-            )
-            // Bring h3 from above
-            .to(
-              h3,
-              {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.6,
-                delay: 0.4,
-              },
-              0.2
-            )
-            // Fade in paragraph
-            .to(
-              text,
-              {
-                opacity: 1,
-                duration: 0.5,
-                delay: 0.2,
-              },
-              0.4
-            );
-        };
-
-        const handleLeave = () => {
-          // Shrink back
-          gsap.to(service, {
-            flex: 1,
-            duration: 0.5,
-            ease: "power1.inOut",
-          });
-
-          if (hoverTl) hoverTl.kill();
-
-          gsap.set(h2Split.words, { yPercent: 0 });
-          gsap.set(h3, { yPercent: -150, opacity: 0 });
+          // Initial states
           gsap.set(text, { opacity: 0 });
+          gsap.set(h3, { yPercent: -150, opacity: 0 });
           gsap.set(serviceImg, {
             clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
           });
-        };
 
-        service.addEventListener("mouseenter", handleEnter);
-        service.addEventListener("mouseleave", handleLeave);
+          let hoverTl;
 
-        // Cleanup
-        return () => {
-          service.removeEventListener("mouseenter", handleEnter);
-          service.removeEventListener("mouseleave", handleLeave);
-        };
+          const handleEnter = () => {
+            // Expand the flex item manually
+            gsap.to(service, {
+              flex: 2,
+              duration: 0.5,
+              ease: "power1.inOut",
+            });
+
+            if (hoverTl) hoverTl.kill();
+            hoverTl = gsap.timeline({
+              defaults: { ease: "power2.out" },
+            });
+
+            hoverTl
+              // Hide h2 instantly
+              .to(h2Split.words, { yPercent: -200, duration: 0.5 })
+              // Animate image reveal
+              .to(
+                serviceImg,
+                {
+                  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                  duration: 0.6,
+                  delay: 0.6,
+                },
+                0
+              )
+              // Bring h3 from above
+              .to(
+                h3,
+                {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.6,
+                  delay: 0.4,
+                },
+                0.2
+              )
+              // Fade in paragraph
+              .to(
+                text,
+                {
+                  opacity: 1,
+                  duration: 0.5,
+                  delay: 0.2,
+                },
+                0.4
+              );
+          };
+
+          const handleLeave = () => {
+            // Shrink back
+            gsap.to(service, {
+              flex: 1,
+              duration: 0.5,
+              ease: "power1.inOut",
+            });
+
+            if (hoverTl) hoverTl.kill();
+
+            gsap.set(h2Split.words, { yPercent: 0 });
+            gsap.set(h3, { yPercent: -150, opacity: 0 });
+            gsap.set(text, { opacity: 0 });
+            gsap.set(serviceImg, {
+              clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+            });
+          };
+
+          service.addEventListener("mouseenter", handleEnter);
+          service.addEventListener("mouseleave", handleLeave);
+        });
       });
-    });
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    });
   }, []);
 
   return (

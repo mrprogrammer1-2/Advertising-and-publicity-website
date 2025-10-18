@@ -2,15 +2,17 @@ import { useGSAP } from "@gsap/react";
 import SectionTitle from "../components/SectionTitle";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
+import { waitForFonts } from "../utils/fontLoader";
 
 function Contact() {
   useGSAP(() => {
-    const contactSplit_1 = SplitText.create(".head_1", {
-      type: "chars, words",
-    });
-    const contactSplit_2 = SplitText.create(".head_2", {
-      type: "chars, words",
-    });
+    waitForFonts().then(() => {
+      const contactSplit_1 = SplitText.create(".head_1", {
+        type: "chars, words",
+      });
+      const contactSplit_2 = SplitText.create(".head_2", {
+        type: "chars, words",
+      });
     let tl;
 
     if (window.innerWidth > 768) {
@@ -47,8 +49,9 @@ function Contact() {
           from: "center",
         },
       },
-      0.2
-    );
+        0.2
+      );
+    });
   });
 
   return (

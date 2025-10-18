@@ -8,6 +8,7 @@ const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   const { y: currentScrollY } = useWindowScroll();
   const headerRef = useRef(null);
@@ -16,7 +17,6 @@ const Header = () => {
     if (currentScrollY === 0) {
       setIsHeaderVisible(true);
       headerRef.current.classList.remove("floating-nav");
-      console.log("hello");
     } else if (currentScrollY > lastScrollY) {
       setIsHeaderVisible(false);
       headerRef.current.classList.add("floating-nav");
@@ -26,25 +26,36 @@ const Header = () => {
     }
     setLastScrollY(currentScrollY);
   }, [currentScrollY]);
+  useEffect(() => {
+    gsap.to(headerRef.current, {
+      opacity: 1,
+      delay: 2.5,
+      duration: 1,
+      ease: "none",
+      onComplete: () => setHasLoaded(true),
+    });
+  }, []);
 
   useGSAP(
     () => {
-      gsap.to(headerRef.current, {
-        y: isHeaderVisible ? 0 : -100,
-        opacity: isHeaderVisible ? 1 : 0,
-        duration: 0.2,
-      });
+      if (hasLoaded) {
+        gsap.to(headerRef.current, {
+          y: isHeaderVisible ? 0 : -100,
+          opacity: isHeaderVisible ? 1 : 0,
+          duration: 0.2,
+        });
+      }
     },
-    { dependencies: [isHeaderVisible] }
+    { dependencies: [isHeaderVisible, hasLoaded] }
   );
 
   return (
     <header
       ref={headerRef}
       id="header"
-      className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 px-4"
+      className="fixed inset-x-0 opacity-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 px-4"
     >
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-xl px-4  sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <a className="block" href="#">

@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
+import { waitForFonts } from "../utils/fontLoader";
 
 const services = [
   {
@@ -54,7 +55,8 @@ const MobileServices = () => {
   };
 
   useGSAP(() => {
-    const mobileServices = gsap.utils.toArray(".mobile_service");
+    waitForFonts().then(() => {
+      const mobileServices = gsap.utils.toArray(".mobile_service");
 
     mobileServices.forEach((service) => {
       const clip = service.querySelector(".clip");
@@ -107,7 +109,8 @@ const MobileServices = () => {
           .to(p, { opacity: 1 });
       };
 
-      service.addEventListener("mousedown", handleClick);
+        service.addEventListener("mousedown", handleClick);
+      });
     });
   });
 
