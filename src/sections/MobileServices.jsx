@@ -1,7 +1,6 @@
 import SectionTitle from "../components/SectionTitle";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import { waitForFonts } from "../utils/fontLoader";
@@ -58,56 +57,45 @@ const MobileServices = () => {
     waitForFonts().then(() => {
       const mobileServices = gsap.utils.toArray(".mobile_service");
 
-    mobileServices.forEach((service) => {
-      const clip = service.querySelector(".clip");
-      // const h2 = service.querySelector("h2");
-      // const h2Split = new SplitText(h2, {
-      //   type: "words,lines",
-      //   linesClass: "service-line",
-      // });
-      const p = service.querySelector("p");
+      mobileServices.forEach((service) => {
+        const clip = service.querySelector(".clip");
 
-      const img = service.querySelector(".img");
+        const p = service.querySelector("p");
 
-      gsap.set(clip, { height: 0.5 });
+        const img = service.querySelector(".img");
 
-      const handleClick = () => {
-        mobileServices.forEach((ser) => {
-          gsap.set(ser.querySelector(".clip"), { height: 0.5 });
-        });
-        if (service.classList.contains("active_service")) {
-          gsap.set(clip, { height: 0.5 });
-          gsap.set(p, { opacity: 0 });
-          gsap.set(img, { clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)" });
-          return;
-        }
-        let clickTl;
+        gsap.set(clip, { height: 0.5 });
 
-        if (clickTl) clickTl.kill();
-        clickTl = gsap.timeline({
-          defaults: { ease: "power1.inOut" },
-          // delay: 0.5,
-        });
-        clickTl
-          .to(clip, { height: 300 })
-          // .from(
-          //   h2Split.words,
-          //   {
-          //     yPercent: -200,
-          //   },
-          //   0
-          // )
-          .to(
-            img,
-            {
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-              duration: 0.6,
-              delay: 0.6,
-            },
-            0.3
-          )
-          .to(p, { opacity: 1 });
-      };
+        const handleClick = () => {
+          mobileServices.forEach((ser) => {
+            gsap.set(ser.querySelector(".clip"), { height: 0.5 });
+          });
+          if (service.classList.contains("active_service")) {
+            gsap.set(clip, { height: 0.5 });
+            gsap.set(p, { opacity: 0 });
+            gsap.set(img, { clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)" });
+            return;
+          }
+          let clickTl;
+
+          if (clickTl) clickTl.kill();
+          clickTl = gsap.timeline({
+            defaults: { ease: "power1.inOut" },
+          });
+          clickTl
+            .to(clip, { height: 300 })
+
+            .to(
+              img,
+              {
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                duration: 0.6,
+                delay: 0.6,
+              },
+              0.3
+            )
+            .to(p, { opacity: 1 });
+        };
 
         service.addEventListener("mousedown", handleClick);
       });
@@ -115,7 +103,7 @@ const MobileServices = () => {
   });
 
   return (
-    <section id="services-mobile" className="block md:hidden pb-20">
+    <section id="services-mobile" className="block md:hidden py-20">
       <SectionTitle text={"services"} />
       <div className="flex flex-col">
         {services.map((service, index) => (
@@ -137,9 +125,7 @@ const MobileServices = () => {
                 >
                   img
                 </div>
-                {/* <h2 className="text-2xl font-roboto-bold mb-2">
-                  {service.title}
-                </h2> */}
+
                 <p className="text-gray-700 text-sm leading-relaxed text-center max-w-[90%] opacity-0">
                   {service.description}
                 </p>

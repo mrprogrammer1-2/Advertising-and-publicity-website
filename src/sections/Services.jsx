@@ -9,7 +9,7 @@ const Services = () => {
     waitForFonts().then(() => {
       const ctx = gsap.context(() => {
         const services = gsap.utils.toArray(".service");
-        
+
         if (!services.length) return;
 
         services.forEach((service) => {
@@ -17,7 +17,7 @@ const Services = () => {
           const h2 = service.querySelector("h2");
           const h3 = service.querySelector("h3");
           const serviceImg = service.querySelector(".img");
-          
+
           // Check if all elements exist
           if (!text || !h2 || !h3 || !serviceImg) return;
 
@@ -125,14 +125,14 @@ const Services = () => {
               </h2>
             </div>
             <div className="w-full relative flex flex-col gap-24">
-              <div className="flex w-full justify-between px-7 pt-11">
+              <div className="flex w-full justify-between px-7 pt-11 gap-1">
                 <div
-                  className="img size-44 rounded-xl bg-teal-300"
+                  className="img w-60 rounded-xl bg-teal-300"
                   style={{
                     clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                   }}
                 >
-                  img
+                  <img src="/images/service_1.jpg" alt="" />
                 </div>
                 <div className="overflow-hidden">
                   <h3 className="text-3xl font-roboto-bold">Brand Strategy</h3>
@@ -154,14 +154,14 @@ const Services = () => {
               </h2>
             </div>
             <div className="w-full relative flex flex-col gap-24">
-              <div className="flex w-full justify-between px-7 pt-11">
+              <div className="flex w-full justify-between px-7 pt-11 gap-1">
                 <div
-                  className="img size-44 rounded-xl bg-teal-300"
+                  className="img w-60 rounded-xl bg-teal-300"
                   style={{
                     clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                   }}
                 >
-                  img
+                  <img src="/images/service_2.jpg" />
                 </div>
                 <div className="overflow-hidden">
                   <h3 className="text-3xl font-roboto-bold">
@@ -185,14 +185,14 @@ const Services = () => {
               </h2>
             </div>
             <div className="w-full relative flex flex-col gap-24">
-              <div className="flex w-full justify-between px-7 pt-11">
+              <div className="flex w-full justify-between px-7 pt-11 gap-1">
                 <div
-                  className="img size-44 rounded-xl bg-teal-300"
+                  className="img w-60 rounded-xl bg-teal-300"
                   style={{
                     clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                   }}
                 >
-                  img
+                  <img src="/images/service_3.jpg" />
                 </div>
                 <div className="overflow-hidden">
                   <h3 className="text-3xl font-roboto-bold">
@@ -216,14 +216,14 @@ const Services = () => {
               </h2>
             </div>
             <div className="w-full relative flex flex-col gap-24">
-              <div className="flex w-full justify-between px-7 pt-11">
+              <div className="flex w-full justify-between px-7 pt-11 gap-1">
                 <div
-                  className="img size-44 rounded-xl bg-teal-300"
+                  className="img w-60 rounded-xl bg-teal-300"
                   style={{
                     clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                   }}
                 >
-                  img
+                  <img src="/images/service_4.jpg" alt="" />
                 </div>
                 <div className="overflow-hidden">
                   <h3 className="text-3xl font-roboto-bold">

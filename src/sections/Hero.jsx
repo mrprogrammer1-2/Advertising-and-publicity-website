@@ -19,20 +19,19 @@ const Hero = () => {
         type: "lines",
         linesClass: "hero_line",
       });
-    const tl = gsap.timeline({
-      delay: 1,
-    });
-    tl.from(introSplit.chars, {
-      yPercent: 200,
-      stagger: {
-        each: 0.03,
-        from: screenWidth > 480 ? "center" : "left",
-        // from: "left",
-      },
-      ease: "bounce.inOur",
-    })
-
-      .to(
+      const hashes = gsap.utils.toArray(".mobile_hash p");
+      const tl = gsap.timeline({
+        delay: 1,
+      });
+      tl.from(introSplit.chars, {
+        yPercent: 200,
+        stagger: {
+          each: 0.03,
+          from: screenWidth > 480 ? "center" : "left",
+          // from: "left",
+        },
+        ease: "bounce.inOur",
+      }).to(
         "#img",
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -40,8 +39,24 @@ const Hero = () => {
           ease: "circ.out",
         },
         "-=0.5"
-      )
-      .to(
+      );
+      if (screenWidth < 648) {
+        hashes.forEach((hash) => {
+          const hashSplit = SplitText.create(hash, {
+            type: "lines, words",
+            linesClass: "line",
+          });
+
+          tl.from(
+            hashSplit.words,
+            {
+              yPercent: -100,
+            },
+            "<"
+          );
+        });
+      }
+      tl.to(
         "#img2",
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -49,8 +64,7 @@ const Hero = () => {
           ease: "circ.out",
         },
         "-=1"
-      )
-      .from(
+      ).from(
         txtSplit.lines,
         {
           yPercent: 500,
@@ -60,23 +74,23 @@ const Hero = () => {
         "-=0.4"
       );
 
-    if (screenWidth > 768) {
-      const imgTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#home",
-          start: "top top",
-          end: "60% top",
-          scrub: true,
-        },
-      });
-
-      imgTl
-        .to("#img", {
-          y: 150,
-        })
-        .to("#img2", {
-          y: -200,
+      if (screenWidth > 768) {
+        const imgTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#home",
+            start: "top top",
+            end: "60% top",
+            scrub: true,
+          },
         });
+
+        imgTl
+          .to("#img", {
+            y: 150,
+          })
+          .to("#img2", {
+            y: -200,
+          });
       }
     });
   });
@@ -86,7 +100,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-dvh w-screen relative pt-16">
-      <div className="w-full !min-h-dvh relative">
+      <div className="w-full !min-h-[80vh] relative">
         <div className="z-10 mt-28 text-center relative overflow-hidden">
           <h1
             id="split"
@@ -97,22 +111,33 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div
-          className="size-64 md:size-72 overflow-hidden rounded-lg md:absolute mx-auto md:top-45 md:translate-none md:right-60 border-muted border"
-          id="img"
-          style={{
-            clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
-          }}
-        >
-          <img
-            src="/images/hero-img-1.jpg"
-            className="w-full h-full object-cover object-center relative z-10"
-          />
-          <div className="size-64 lg:size-72 absolute top-4 right-8 bg-text rounded-lg " />
+        <div className="flex items-end justify-center mx-auto md:block ">
+          <div
+            className="h-48 w-40 md:size-72 overflow-hidden rounded-lg md:absolute md:top-45 md:translate-none md:right-60"
+            id="img"
+            style={{
+              clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
+            }}
+          >
+            <img
+              src="/images/hero-img-1.jpg"
+              className="w-full h-full object-cover object-center relative z-10"
+            />
+            <div className="size-64 lg:size-72 absolute top-4 right-8 bg-text rounded-lg " />
+          </div>
+          {screenWidth < 648 && (
+            <div className="mobile_hash text-black font-roboto-semibold">
+              <p className="leading-3.5">#Discover</p>
+              <p className="leading-3.5">#Strategize</p>
+              <p className="leading-3.5">#Create</p>
+              <p className="leading-3.5">#Launch</p>
+              <p className="leading-3.5">#Analyze</p>
+            </div>
+          )}
         </div>
 
         <div
-          className="hidden w-72 lg:block overflow-hidden rounded-lg absolute bottom-50 left-60 border-muted border"
+          className="hidden w-72 max-h-96 lg:block overflow-hidden rounded-lg absolute bottom-25 left-60"
           id="img2"
           style={{
             clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
@@ -123,7 +148,7 @@ const Hero = () => {
             className="w-full h-full object-cover object-center scale-110"
           />
         </div>
-        <div className="md:max-w-md md:absolute sm:left-[40%] md:left-1/2 md:-translate-x-1/2 mt-6 overflow-hidden">
+        <div className="px-3 md:max-w-md md:absolute sm:left-[40%] md:left-1/2 md:-translate-x-1/2 mt-6 overflow-hidden">
           <p
             id="txt"
             className="text-center sm:text-left md:!text-center text-sm font-roboto-regular text-gray-800 text-shadow-2xs"

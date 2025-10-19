@@ -58,7 +58,10 @@ const Portfolio = () => {
               className="project min-h-[27rem] h-fit bg-black rounded-md overflow-hidden font-roboto-regular max-w-96 md:flex-1 "
             >
               <div className="size-44 border-2 border-gray-300 rounded-tl-md rounded-tr-md bg-red-400 w-full">
-                img
+                <img
+                  src={`/images/portfolio_${index + 1}.jpg`}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <div className="p-4 mt-8">
                 <h2 className="text-xl text-white mb-2">{project.title}</h2>

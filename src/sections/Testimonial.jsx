@@ -39,7 +39,10 @@ const Testimonial = () => {
     });
   });
   return (
-    <section id="testimonial" className="min-h-dvh relative w-screen py-5">
+    <section
+      id="testimonial"
+      className="min-h-dvh relative w-screen py-12 md:py-5"
+    >
       <SectionTitle text={"Testimonial"} />
       <div className="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-16 lg:gap-32 md:px-16 lg:px-32 mt-24 md:mt-40">
         <div
@@ -51,8 +54,13 @@ const Testimonial = () => {
           <div className="flex flex-col justify-center items-center gap-3">
             <div
               id="profile"
-              className=" size-20 rounded-full border border-black bg-gray-200"
-            ></div>
+              className=" size-20 overflow-hidden rounded-full border border-black bg-gray-200"
+            >
+              <img
+                src="/images/testi_1.jpg"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <p className="text-2xl font-roboto-semibold leading-5 text-black">
               Sarah Chen <br />
               <span className="text-sm">CEO, Brew & Bean</span>
@@ -75,8 +83,13 @@ const Testimonial = () => {
           <div className="w-full flex flex-col justify-center items-center text-center gap-3">
             <div
               id="profile"
-              className=" size-20 rounded-full border border-black bg-gray-200"
-            ></div>
+              className=" size-20 overflow-hidden rounded-full border border-black bg-gray-200"
+            >
+              <img
+                src="/images/testi_2.jpg"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <p className="text-2xl font-roboto-semibold leading-5 text-black">
               Michael Doe
               <br />

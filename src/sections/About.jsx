@@ -157,15 +157,15 @@ const About = () => {
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                     }}
                   >
-                    <div className="w-full h-full">img</div>
+                    <img className="w-full h-full" src="/images/about_1.jpg" />
                   </div>
                   <div
-                    className="size-48 md:size-60 rounded-lg absolute overflow-hidden bg-blue-400 grid place-content-center-safe right-20 top-20 "
+                    className="w-56 md:w-72 rounded-lg absolute overflow-hidden bg-blue-400 grid place-content-center-safe right-20 top-20 "
                     style={{
                       clipPath: "polygon(0 0, 100% 0%, 100% 0, 0 0)",
                     }}
                   >
-                    <div className="w-full h-full">img</div>
+                    <img className="w-full h-full" src="/images/about_2.png" />
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ const About = () => {
           </div>
           <div
             id="about-second-part"
-            className="w-full bg-background-black min-h-dvh px-9"
+            className="w-full bg-background-black min-h-dvh px-9 pb-11"
           >
             <div className="w-full h-full border-t-2 border-[#666] pt-12 md:pt-32">
               <div className="md:pl-14 md:mt-8">
@@ -202,7 +202,7 @@ const About = () => {
               </div>
               <div
                 id="team"
-                className="h-dvh mt-16 md:mt-60 flex gap-10 md:gap-16 flex-col md:flex-row justify-end"
+                className="h-dvh mt-7 md:mt-60 flex gap-10 md:gap-16 flex-col md:flex-row justify-end"
               >
                 <div className="imgs flex gap-3 md:gap-9">
                   <div
