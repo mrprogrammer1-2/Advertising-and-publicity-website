@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { waitForFonts } from "../utils/fontLoader";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +12,9 @@ const Hero = () => {
 
   useGSAP(() => {
     waitForFonts().then(() => {
+
+      
+
       const introSplit = SplitText.create("#split", {
         type: "words, chars",
       });
@@ -25,8 +28,9 @@ const Hero = () => {
       const tl = gsap.timeline({
         delay: 1,
       });
-      tl.from(introSplit.chars, {
-        yPercent: 200,
+      tl.set("#split", { opacity: 1 })
+      .to(introSplit.chars, {
+        yPercent: 0,
         stagger: {
           each: 0.03,
           from: screenWidth > 480 ? "center" : "left",
@@ -66,10 +70,12 @@ const Hero = () => {
           ease: "circ.out",
         },
         "-=1"
-      ).from(
+      )
+      .to("#txt", { opacity: 1 }, "-=1")
+      .to(
         txtSplit.lines,
         {
-          yPercent: 500,
+          yPercent: 0,
           stagger: 0.02,
           ease: "circ.out",
         },
@@ -106,7 +112,7 @@ const Hero = () => {
         <div className="z-10 mt-28 text-center relative overflow-hidden">
           <h1
             id="split"
-            className="font-roboto-bold text-black w-full text-5xl md:text-6xl xl:text-[8rem] leading-tighter tracking-[-0.07em] uppercase"
+            className="font-roboto-bold opacity-0 text-black w-full text-5xl md:text-6xl xl:text-[8rem] leading-tighter tracking-[-0.07em] uppercase"
             style={{ wordSpacing: "-0.05em" }}
           >
             We Build Brands{window.innerWidth <= 480 ? <br /> : " "}That Pulse
@@ -153,7 +159,7 @@ const Hero = () => {
         <div className="px-3 md:max-w-md md:absolute sm:left-[40%] md:left-1/2 md:-translate-x-1/2 mt-6 overflow-hidden">
           <p
             id="txt"
-            className="text-center sm:text-left md:!text-center text-sm font-roboto-regular text-gray-800 text-shadow-2xs"
+            className="opacity-0 text-center sm:text-left md:!text-center text-sm font-roboto-regular text-gray-800 text-shadow-2xs"
           >
             A modern advertising agency where data-driven strategy meets
             breathtaking creativity.
