@@ -15,10 +15,12 @@ const Hero = () => {
       const introSplit = SplitText.create("#split", {
         type: "words, chars",
       });
+      gsap.set(introSplit.chars, { yPercent: 200 });
       const txtSplit = SplitText.create("#txt", {
         type: "lines",
         linesClass: "hero_line",
       });
+      gsap.set(txtSplit.lines, { yPercent: 500 });
       const hashes = gsap.utils.toArray(".mobile_hash p");
       const tl = gsap.timeline({
         delay: 1,
